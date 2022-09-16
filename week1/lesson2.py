@@ -5,9 +5,8 @@ space after. The string should be ended with a question mark.
 
 name = 'Placidus'
 while name:
-    print((' Pla' + '...' '' )*2, '' 'Placidus' + '?')
+    print(((name[0:2]+'...'' ')*2),name +'?')
     break
-    
 """
 Q2: Perform a for loop that searches through a string and prints only distinct vowel letters
 """
@@ -21,3 +20,11 @@ for letters in my_name:
 """
 Q3: 
 """
+school = "stutern"
+while True:
+    choice = input('') 
+    if choice == school:
+        print(school)
+    if choice == 'end' or 'End' or 'ENd' or 'enD':
+        break
+# pls remember that I used an input statement here. So it will require you to make a 'choice' before it could be executed.
