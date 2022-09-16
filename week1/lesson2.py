@@ -18,7 +18,8 @@ for letters in my_name:
         print(letters)
 
 """
-Q3: 
+Q3: Perform a while loop that requests for a name, if that name is entered, it will be printed else,
+if user types “end” (this command should be case insensitive), the while loop is terminated
 """
 school = "stutern"
 while True:
