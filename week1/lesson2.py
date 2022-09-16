@@ -21,11 +21,13 @@ for letters in my_name:
 Q3: Perform a while loop that requests for a name, if that name is entered, it will be printed else,
 if user types “end” (this command should be case insensitive), the while loop is terminated
 """
-school = "stutern"
+school_name = "stutern"
 while True:
     choice = input('') 
-    if choice == school:
-        print(school)
+    if choice == school_name:
+        print(school_name)
     if choice == 'end' or 'End' or 'ENd' or 'enD':
         break
-# pls remember that I used an input statement here. So it will require you to make a 'choice' before it could be executed.
+# pls remember that I used an input statement here. So it will require you to make a 'choice' before it could be executed. 
+# If your choice is school_name which is 'stutern', it will print 'stutern', but if your choice is any of the spelling of 'end' provided, it 
+# will break.
