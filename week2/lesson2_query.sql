@@ -6,4 +6,3 @@ SELECT course_id, num_subscribers
 FROM udemy_courses
 WHERE is_paid = TRUE AND num_subscribers != 0
 ORDER BY num_subscribers DESC;
-
