@@ -23,7 +23,7 @@ if user types “end” (this command should be case insensitive), the while loo
 """
 school_name = "stutern"
 while True:
-    choice = input('') 
+    choice = input('Enter your choice: ') 
     if choice == school_name:
         print(school_name)
     if choice == 'end' or 'End' or 'ENd' or 'enD' or 'EnD':
