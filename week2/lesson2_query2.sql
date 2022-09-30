@@ -2,7 +2,9 @@
 
 /* Write a query for paid courses, showing the course with the 
 highest sales per month */
-SELECT course_id, num_reviews
+
+SELECT course_id, course_title, 
+MAX(num_reviews),
+strftime("%Y-%m", published_timestamp) as YearMonth
 FROM udemy_courses
-WHERE is_paid = TRUE AND num_reviews != 0 
-ORDER BY num_reviews DESC; 
+GROUP BY strftime("%Y-%m", published_timestamp)
