@@ -9,7 +9,7 @@ scaler = joblib.load('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Project
 print('Models Loaded Successfully')
 
 # Streamlit App
-st.title("Crop Yield Prediction App")
+st.title("Crop Yield Prediction Model")
 st.write("This app uses a Random Forest model to predict crop yield based on crop type, year, rainfall, and temperature.")
 
 # Mapping for crop selection
