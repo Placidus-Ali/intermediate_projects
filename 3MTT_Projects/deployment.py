@@ -45,3 +45,4 @@ if st.button("Predict Yield"):
 st.write("Note: Ensure that the input values are within a realistic range for accurate predictions.")
 
 
+print('Model deployed successfully')
