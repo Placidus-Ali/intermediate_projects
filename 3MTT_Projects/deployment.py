@@ -4,8 +4,8 @@ import numpy as np
 print('Models Inported Successfully')
 
 # Load the pre-trained model and scaler
-model = joblib.load('C:/Users/STUTERN\Desktop/Intermediate_project/3MTT_Projects/Build_with_team/random_forest_model.joblib')
-scaler = joblib.load('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/Build_with_team/scaler_object.sav')
+model = joblib.load('C:/Users/STUTERN\Desktop/Intermediate_project/3MTT_Projects/random_forest_model.joblib')
+scaler = joblib.load('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/scaler_object.sav')
 print('Models Loaded Successfully')
 
 # Streamlit App
@@ -45,4 +45,3 @@ if st.button("Predict Yield"):
 st.write("Note: Ensure that the input values are within a realistic range for accurate predictions.")
 
 
-print('Model deployed successfully')
