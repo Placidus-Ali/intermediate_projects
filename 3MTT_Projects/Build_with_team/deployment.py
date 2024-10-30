@@ -1,11 +1,17 @@
 import streamlit as st
 import joblib
 import numpy as np
+import os
 print('Models Inported Successfully')
 
-# Load the pre-trained model and scaler
-model = joblib.load("random_forest_model.joblib")
-scaler = joblib.load("scaler_object.joblib")
+# Load the model and scaler
+
+# Adjust path to point to where the model is stored, relative to the working directory
+model_path = os.path.join(os.getcwd(), "random_forest_model.joblib")
+model = joblib.load(model_path)
+
+# model = joblib.load(open("random_forest_model.joblib", 'rb'))
+scaler = joblib.load(open("scaler_object.joblib", 'rb'))
 print('Models Loaded Successfully')
 
 # Streamlit App
