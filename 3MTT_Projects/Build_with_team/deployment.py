@@ -7,7 +7,7 @@ print('Models Inported Successfully')
 # Load the model and scaler
 
 # Adjust path to point to where the model is stored, relative to the working directory
-model_path = os.path.join(os.getcwd(), "random_forest_model.joblib")
+model_path = os.path.join(os.path.dirname(__file__), "random_forest_model.joblib")
 model = joblib.load(model_path)
 
 # model = joblib.load(open("random_forest_model.joblib", 'rb'))
