@@ -5,9 +5,13 @@ import os
 print('Models Inported Successfully')
 
 # Load the model and scaler
+# Get the directory where the script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Adjust path to point to where the model is stored, relative to the working directory
-model_path = os.path.join(os.path.dirname(__file__), "random_forest_model.joblib")
+# Set the path to your model file relative to the script's location
+model_path = os.path.join(script_dir, "random_forest_model.joblib")
+
+# Load the model
 model = joblib.load(model_path)
 
 # model = joblib.load(open("random_forest_model.joblib", 'rb'))
