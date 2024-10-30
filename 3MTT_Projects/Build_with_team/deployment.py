@@ -4,8 +4,8 @@ import numpy as np
 print('Models Inported Successfully')
 
 # Load the pre-trained model and scaler
-model = joblib.load('C:/Users/STUTERN\Desktop/Intermediate_project/3MTT_Projects/Build_with_team/random_forest_model.joblib')
-scaler = joblib.load('C:/Users/STUTERN\Desktop/Intermediate_project/3MTT_Projects/Build_with_team/scaler_object.joblib')
+model = (joblib.load('random_forest_model.joblib'))
+scaler = (joblib.load('scaler_object.joblib'))
 print('Models Loaded Successfully')
 
 # Streamlit App
