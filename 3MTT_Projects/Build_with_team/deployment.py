@@ -7,15 +7,18 @@ print('Models Inported Successfully')
 # Load the model and scaler
 # Get the directory where the script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
 # Set the path to your model file relative to the script's location
 model_path = os.path.join(script_dir, "random_forest_model.joblib")
-
 # Load the model
 model = joblib.load(model_path)
 
-# model = joblib.load(open("random_forest_model.joblib", 'rb'))
-scaler = joblib.load(open("scaler_object.joblib", 'rb'))
+# Get the directory where the script is located
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# Path to the scaler file
+scaler_path = os.path.join(script_dir, "scaler_object.joblib")
+# Load the scaler
+scaler = joblib.load(scaler_path)
+# scaler = joblib.load(open("scaler_object.joblib", 'rb'))
 print('Models Loaded Successfully')
 
 # Streamlit App
