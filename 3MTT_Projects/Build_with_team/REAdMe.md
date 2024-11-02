@@ -1,3 +1,3 @@
 If you want to test my model. Click or copy the link below:
 
-http://localhost:8502/#crop-yield-prediction-model
+https://3mtt-crop-yield-prediction.streamlit.app
