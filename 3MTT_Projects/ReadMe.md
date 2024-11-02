@@ -1,3 +1,3 @@
-Here is the link make heart Disease Prediction
+Here is the link to check if you have Heart Disease or not. Good luck
 
 https://predictheart-disease.streamlit.app/
