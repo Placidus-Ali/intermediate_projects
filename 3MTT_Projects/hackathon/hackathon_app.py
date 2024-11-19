@@ -8,7 +8,7 @@ print('Models Inported Successfully')
 
 # Define relative paths to the model, scaler, and image files
 model_path = os.path.join(os.getcwd(), "RF.sav")
-scaler_path = os.path.join(os.getcwd(), "scaler.sav")
+scaler_path = os.path.join(os.getcwd(), "C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/scaler.pkl")
 image_path = os.path.join(os.getcwd(), "C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
 
 try:
