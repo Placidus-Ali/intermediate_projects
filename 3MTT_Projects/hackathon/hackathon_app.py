@@ -6,47 +6,30 @@ import os
 from PIL import Image
 print('Models Inported Successfully')
 
-import pickle
-import streamlit as st
+# Define relative paths to the model, scaler, and image files
+model_path = os.path.join(os.getcwd(), "RF.sav")
+scaler_path = os.path.join(os.getcwd(), "scaler.sav")
+image_path = os.path.join(os.getcwd(), "dest-prediabetes.jpg")
 
-# File uploader for model and scaler
-uploaded_model = st.file_uploader("RF.sav", type=["sav"])
-uploaded_scaler = st.file_uploader("scaler.sav)", type=["sav"])
-uploaded_file = st.file_uploader("Choose an image", type=["jpg"])
-
-if uploaded_model is not None and uploaded_scaler is not None:
-    try:
-        # Load model from uploaded file
-        loaded_model = pickle.load(uploaded_model)
-        
-        # Load scaler from uploaded file
-        scaler = pickle.load(uploaded_scaler)
-
-        #Load Image from uploaded file
-        img = Image.open(uploaded_file)
-
-        
-        st.write("Model and scaler loaded successfully.")
-    except Exception as e:
-        st.error(f"Error loading model or scaler: {e}")
-
-
-# Load the model and scaler
-#loaded_model = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/RF.sav', 'rb'))
-#print('Model Loaded Successfully')
-
-# loading the scaler object
-#scaler = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/scaler.sav', 'rb')) # C:/Users/LAWRENCE/Desktop/SGA_1.3/PROJECTS_Folder/
-#print('Scaler Loaded Successfully')
-
-# loading an image
-#img = Image.open("C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
-#print('Image Loaded Successfully')
+try:
+    # Load the model
+    loaded_model = pickle.load(open(model_path, 'rb'))
+    st.success("Model Loaded Successfully")
+    
+    # Load the scaler object
+    scaler = pickle.load(open(scaler_path, 'rb'))
+    st.success("Scaler Loaded Successfully")
+    
+    # Load and display the image
+    img = Image.open(image_path)
+    st.image(img, caption="Sample Image", use_column_width=True)
+    st.success("Image Loaded Successfully")
+except Exception as e:
+    st.error(f"Error: {e}")
 
 
 # Streamlit App
 st.title("Diabetes Prediction Model")
-st.image(img)
 st.write("This model predicts the likelihood of having diabetes based on user inputs.")
 print('Stream App Created')
 
@@ -73,9 +56,9 @@ mental_health = st.number_input("Number of days of poor mental health in the pas
 physical_health = st.number_input("Number of days of poor physical health in the past month", value=0, step=1)
 diff_walk = st.selectbox("Difficulty walking or climbing stairs? (1: Yes, 0: No)", options=[1, 0])
 sex = st.selectbox("Sex (1: Male, 0: Female)", options=[1, 0])
-age = st.selectbox("Age (18–24, 25–29, 30–34, 35–39, 40–44, 45–49, 50–54, 55–59, 60–64, 65–69, 70–74, 75–79, 80+)", options=list(range(1, 14)))
-education = st.selectbox("Education level (No high school, High school graduate, Some college, Associate degree, Bachelor's degree, College graduate)", options=list(range(1, 7)))
-income = st.selectbox("Income level (<$10k, $10k - $20k, $20k - $30k, $30k - $40k, $40k - $50k, $50k - $60k, $60k - $75k, $75k+)", options=list(range(1, 9)))
+age = st.selectbox("Age (1: 18–24, 2: 25–29, 3: 30–34, 4: 35–39, 5: 40–44, 6: 45–49, 7: 50–54, 8: 55–59, 9: 60–64, 10: 65–69, 11: 70–74, 12: 75–79, 13: 80+)", options=list(range(1, 14)))
+education = st.selectbox("Education level (1: No high school, 2: High school graduate, 3: Some college, 4: Associate degree, 5: Bachelor's degree, 6: College graduate)", options=list(range(1, 7)))
+income = st.selectbox("Income level (1: <$10k, 2: $10k-$20k, 3: $20k-$30k, 4: $30k-$40k, 5: $40k-$50k, 6: $50k-$60k, 7: $60k-$75k, 8: $75k+)", options=list(range(1, 9)))
 print("Feature Input Created")
 
 # Prepare input data for prediction
