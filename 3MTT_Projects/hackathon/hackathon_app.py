@@ -27,12 +27,12 @@ if uploaded_model is not None and uploaded_scaler is not None:
 
 
 # Load the model and scaler
-loaded_model = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/RF.sav', 'rb'))
-print('Model Loaded Successfully')
+#loaded_model = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/RF.sav', 'rb'))
+#print('Model Loaded Successfully')
 
 # loading the scaler object
-scaler = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/scaler.sav', 'rb')) # C:/Users/LAWRENCE/Desktop/SGA_1.3/PROJECTS_Folder/
-print('Scaler Loaded Successfully')
+#scaler = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/scaler.sav', 'rb')) # C:/Users/LAWRENCE/Desktop/SGA_1.3/PROJECTS_Folder/
+#print('Scaler Loaded Successfully')
 
 # loading an image
 img = Image.open("C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
