@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import numpy as np
 import os
+import sklearn
 print('Libraries Imported suuccessfully')
 
 # Load the model and scaler
