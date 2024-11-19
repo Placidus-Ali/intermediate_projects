@@ -6,6 +6,26 @@ import os
 from PIL import Image
 print('Models Inported Successfully')
 
+import pickle
+import streamlit as st
+
+# File uploader for model and scaler
+uploaded_model = st.file_uploader("RF.sav", type=["sav"])
+uploaded_scaler = st.file_uploader("scaler.sav)", type=["sav"])
+
+if uploaded_model is not None and uploaded_scaler is not None:
+    try:
+        # Load model from uploaded file
+        loaded_model = pickle.load(uploaded_model)
+        
+        # Load scaler from uploaded file
+        scaler = pickle.load(uploaded_scaler)
+        
+        st.write("Model and scaler loaded successfully.")
+    except Exception as e:
+        st.error(f"Error loading model or scaler: {e}")
+
+
 # Load the model and scaler
 loaded_model = pickle.load(open('C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/RF.sav', 'rb'))
 print('Model Loaded Successfully')
