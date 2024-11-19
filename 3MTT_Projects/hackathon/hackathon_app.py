@@ -12,6 +12,7 @@ import streamlit as st
 # File uploader for model and scaler
 uploaded_model = st.file_uploader("RF.sav", type=["sav"])
 uploaded_scaler = st.file_uploader("scaler.sav)", type=["sav"])
+uploaded_file = st.file_uploader("Choose an image", type=["jpg"])
 
 if uploaded_model is not None and uploaded_scaler is not None:
     try:
@@ -20,6 +21,10 @@ if uploaded_model is not None and uploaded_scaler is not None:
         
         # Load scaler from uploaded file
         scaler = pickle.load(uploaded_scaler)
+
+        #Load Image from uploaded file
+        img = Image.open(uploaded_file)
+
         
         st.write("Model and scaler loaded successfully.")
     except Exception as e:
@@ -35,8 +40,8 @@ if uploaded_model is not None and uploaded_scaler is not None:
 #print('Scaler Loaded Successfully')
 
 # loading an image
-img = Image.open("C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
-print('Image Loaded Successfully')
+#img = Image.open("C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
+#print('Image Loaded Successfully')
 
 
 # Streamlit App
