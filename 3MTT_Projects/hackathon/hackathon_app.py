@@ -7,9 +7,9 @@ from PIL import Image
 print('Models Inported Successfully')
 
 # Define relative paths to the model, scaler, and image files
-model_path = os.path.join(os.getcwd(), "RF.sav")
-scaler_path = os.path.join(os.getcwd(), "scaler.sav")
-image_path = os.path.join(os.getcwd(), "dest-prediabetes.jpg")
+model_path = os.path.join(os.getcwd(), "C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/RF.sav")
+scaler_path = os.path.join(os.getcwd(), "C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/scaler.sav")
+image_path = os.path.join(os.getcwd(), "C:/Users/STUTERN/Desktop/Intermediate_project/3MTT_Projects/hackathon/dest-prediabetes.jpg")
 
 try:
     # Load the model
