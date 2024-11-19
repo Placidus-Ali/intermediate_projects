@@ -8,11 +8,11 @@ print('Libraries Imported suuccessfully')
 script_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(script_dir, "gradient_boosting.joblib")
 model = joblib.load(model_path)
+print('Model Loaded Successfully')
 
-scaler_path = os.path.join(script_dir, "scaler.joblib")
+scaler_path = os.path.join(script_dir, "scaler_object.joblib")
 scaler = joblib.load(scaler_path)
-print('Model and Scaler Loaded Successfully')
-print('Stream App Created')
+print('Scaler Loaded Successfully')
 
 # Streamlit App
 st.title("Diabetes Prediction Model")
