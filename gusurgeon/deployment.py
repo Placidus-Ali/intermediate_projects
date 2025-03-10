@@ -2,6 +2,7 @@ import streamlit as st
 import joblib
 import pandas as pd
 import glob
+from PIL import Image
 print("Libraries Loading Successfully")
 
 # Load trained model
@@ -11,12 +12,25 @@ print("Libraries Loading Successfully")
 # print("Model Loading Successfully")
 
 # Search for model and scaler files anywhere in the directory
-model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
-scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
+# model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
+# scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
 
-if model_path and scaler_path:
-    model = joblib.load(model_path)
-    scaler = joblib.load(scaler_path)
+# if model_path and scaler_path:
+#     model = joblib.load(model_path)
+#     scaler = joblib.load(scaler_path)
+# print("Model Loading Successfully")
+
+for file in ["random_forest_model.pkl", "rm_scaler_object.joblib", "ehr.jpg"]:
+    path = next(iter(glob.iglob(f"**/{file}", recursive=True)), None)
+    if not path:
+        print(f"Error: {file} not found!")
+        continue
+    if file.endswith(".pkl") or file.endswith(".joblib"):
+        obj = joblib.load(path)
+        print(f"{file} loaded from {path}")
+    else:
+        Image.open(path).show()
+        print(f"Image displayed from {path}")
 print("Model Loading Successfully")
 
 st.title("EHR Software Price Prediction")
