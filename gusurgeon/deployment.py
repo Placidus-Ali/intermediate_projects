@@ -1,11 +1,22 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import glob
 print("Libraries Loading Successfully")
 
 # Load trained model
-with open("random_forest_model.pkl", "rb") as model_file:
-    model = joblib.load(model_file)
+# with open("random_forest_model.pkl", "rb") as model_file:
+#     model = joblib.load(model_file)
+#     scaler = joblib.load('rm_scaler_object.joblib')
+# print("Model Loading Successfully")
+
+# Search for model and scaler files anywhere in the directory
+model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
+scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
+
+if model_path and scaler_path:
+    model = joblib.load(model_path)
+    scaler = joblib.load(scaler_path)
 print("Model Loading Successfully")
 
 st.title("EHR Software Price Prediction")
