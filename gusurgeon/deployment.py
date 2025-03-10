@@ -33,7 +33,7 @@ print("Image Loading Successfully")
 st.title("EHR Software Price Prediction")
 
 # Display an image
-st.image("ehr.jpg", use_column_width=True)
+# st.image("ehr.jpg", use_column_width=True)
 
 # User input fields
 pricing_model = st.selectbox("Pricing Model", ["Subscription", "Perpetual License"])
