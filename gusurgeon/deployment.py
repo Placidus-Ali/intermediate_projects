@@ -12,26 +12,24 @@ print("Libraries Loading Successfully")
 # print("Model Loading Successfully")
 
 # Search for model and scaler files anywhere in the directory
-# model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
-# scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
+model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
+scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
 
-# if model_path and scaler_path:
-#     model = joblib.load(model_path)
-#     scaler = joblib.load(scaler_path)
-# print("Model Loading Successfully")
-
-for file in ["random_forest_model.pkl", "rm_scaler_object.joblib", "ehr.jpg"]:
-    path = next(iter(glob.iglob(f"**/{file}", recursive=True)), None)
-    if not path:
-        print(f"Error: {file} not found!")
-        continue
-    if file.endswith(".pkl") or file.endswith(".joblib"):
-        obj = joblib.load(path)
-        print(f"{file} loaded from {path}")
-    else:
-        Image.open(path).show()
-        print(f"Image displayed from {path}")
+if model_path and scaler_path:
+    model = joblib.load(model_path)
+    scaler = joblib.load(scaler_path)
 print("Model Loading Successfully")
+
+# Search for the image file anywhere in the directory
+image_path = next(iter(glob.iglob("**/ehr.jpg", recursive=True)), None)
+
+if image_path:
+    img = Image.open(image_path)
+    img.show()  # Display the image
+    print(f"Image loaded successfully from: {image_path}")
+else:
+    print("Error: Image file 'ehr.jpg' not found!")
+print("Image Loading Successfully")
 
 st.title("EHR Software Price Prediction")
 
