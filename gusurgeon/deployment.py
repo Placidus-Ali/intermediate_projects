@@ -4,12 +4,6 @@ import pandas as pd
 import glob
 print("Libraries Loading Successfully")
 
-# Load trained model
-# ith open("random_forest_model.pkl", "rb") as model_file:
-#     model = joblib.load(model_file)
-#     scaler = joblib.load('rm_scaler_object.joblib')
-# print("Model Loading Successfully")
-
 # Search for model and scaler files anywhere in the directory
 model_path = next(iter(glob.iglob("**/random_forest_model.pkl", recursive=True)), None)
 scaler_path = next(iter(glob.iglob("**/rm_scaler_object.joblib", recursive=True)), None)
@@ -23,17 +17,13 @@ print("Model Loading Successfully")
 image_path = next(iter(glob.iglob("**/ehr.jpg", recursive=True)), None)
 
 if image_path:
-    st.image(image_path, use_column_width=True)
-    st.write(f"Image loaded from: {image_path}")
+    st.image(image_path, use_container_width=True)
 else:
     st.error("Error: Image file 'ehr.jpg' not found!")
 print("Image Loading Successfully")
 
 # Setting the Display Title
 st.title("EHR Software Price Prediction")
-
-# Display an image
-# st.image("ehr.jpg", use_column_width=True)
 
 # User input fields
 pricing_model = st.selectbox("Pricing Model", ["Subscription", "Perpetual License"])
