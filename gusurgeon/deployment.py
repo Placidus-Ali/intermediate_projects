@@ -19,11 +19,21 @@ if model_path and scaler_path:
     scaler = joblib.load(scaler_path)
 print("Model Loading Successfully")
 
+# Search for the image file anywhere in the project directory
+image_path = next(iter(glob.iglob("**/ehr.jpg", recursive=True)), None)
+
+if image_path:
+    st.image(image_path, use_column_width=True)
+    st.write(f"Image loaded from: {image_path}")
+else:
+    st.error("Error: Image file 'ehr.jpg' not found!")
+print("Image Loading Successfully")
+
 # Setting the Display Title
 st.title("EHR Software Price Prediction")
 
 # Display an image
-st.image("C:\Users\STUTERN\Desktop\intermediate_projects\gusurgeon.ehr.jpg", use_column_width=True)
+st.image("ehr.jpg", use_column_width=True)
 
 # User input fields
 pricing_model = st.selectbox("Pricing Model", ["Subscription", "Perpetual License"])
