@@ -24,7 +24,7 @@ print("Model Loading Successfully")
 st.title("EHR Software Price Prediction")
 
 # Display an image
-st.image("ehr.jpg", use_column_width=True)
+st.image("C:\Users\STUTERN\Desktop\intermediate_projects\gusurgeon.ehr.jpg", use_column_width=True)
 
 # User input fields
 pricing_model = st.selectbox("Pricing Model", ["Subscription", "Perpetual License"])
