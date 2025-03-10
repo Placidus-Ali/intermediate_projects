@@ -20,17 +20,7 @@ if model_path and scaler_path:
     scaler = joblib.load(scaler_path)
 print("Model Loading Successfully")
 
-# Search for the image file anywhere in the directory
-image_path = next(iter(glob.iglob("**/ehr.jpg", recursive=True)), None)
-
-if image_path:
-    img = Image.open(image_path)
-    img.show()  # Display the image
-    print(f"Image loaded successfully from: {image_path}")
-else:
-    print("Error: Image file 'ehr.jpg' not found!")
-print("Image Loading Successfully")
-
+# Setting the Display Title
 st.title("EHR Software Price Prediction")
 
 # Display an image
