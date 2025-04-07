@@ -8,4 +8,5 @@ llama-index-embeddings-huggingface
 llama-index
 transformers
 gdown
+sentence-transformers
 huggingface-hub
