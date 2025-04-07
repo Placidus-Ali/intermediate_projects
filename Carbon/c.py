@@ -9,7 +9,8 @@ def load_emission_factors():
     return pd.read_csv(csv_url)
 
 def load_per_capita_data():
-    return pd.read_csv("per_capita_filtered.csv")
+    csv_url1 = "https://github.com/Placidus-Ali/intermediate_projects/blob/main/Carbon/emission_factor_clean.csv"
+    return pd.read_csv(csv_url1)
 
 emission_factors = load_emission_factors()
 per_capita_data = load_per_capita_data()
