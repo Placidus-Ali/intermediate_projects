@@ -1,5 +1,8 @@
 # download saved vector database for Alice's Adventures in Wonderland
-gdown --folder 1ykKlRQH7wXBl9P1YHAOVUfcfVs0PpNRs
+import subprocess
+
+# Download the folder using gdown CLI
+subprocess.run(["gdown", "--folder", "1ykKlRQH7wXBl9P1YHAOVUfcfVs0PpNRs"], check=True)
 token = userdata.get('Otu_ocha')
 
 hf_model = "mistralai/Mistral-7B-Instruct-v0.3"

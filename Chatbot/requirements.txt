@@ -1,3 +1,4 @@
+subprocess
 streamlit
 pandas
 matplotlib
