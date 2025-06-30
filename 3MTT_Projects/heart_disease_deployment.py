@@ -2,53 +2,53 @@ import streamlit as st
 import joblib
 import numpy as np
 import os
+from PIL import Image
 print("Libraries Imported Successfully")
 
 # Load the model and scaler
-# Get the directory where the script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
-# Set the path to your model file relative to the script's location
 model_path = os.path.join(script_dir, "random_forest.joblib")
-# Load the model
 model = joblib.load(model_path)
 
-# Get the directory where the script is located
 script_dir = os.path.dirname(os.path.abspath(__file__))
-# Path to the scaler file
 scaler_path = os.path.join(script_dir, "scaler.joblib")
-# Load the scaler
 scaler = joblib.load(scaler_path)
-# scaler = joblib.load(open("scaler_object.joblib", 'rb'))
 print('Model and Scaler Loaded Successfully')
 
+image_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(script_dir, "heart_disease.jpg")
+image = Image.open(image_path)
 
-# Streamlit App
+# Streamlit Title and Header
+st.image(image, use_column_width=True)
 st.title("Heart Disease Prediction Model")
 st.write("This Model predicts the likelihood of heart disease based on user inputs.")
-print('Stream App Created')
-
-# User inputs for prediction (without min and max constraints)
-st.header("Enter your information:")
-print("Header Input Created")
+with st.expander("Documentation: Input Feature Descriptions"):
+    st.write("**Age**: age in years")
+    st.write("**Sex**: sex; 1 = male, 0 = female")
+    st.write("**CP**: chest pain type; 0= typical angina, 1= atypical angina, 2= non-anginal pain, 3= asymptomatic")
+    st.write("**Thalach**: maximum heart rate achieved")
+    st.write("**Exang**: exercise induced angina; 1 = yes, 0 = no")
+    st.write("**Oldpeak**: ST depression induced by exercise relative to rest(Min value=0.0, Max value=6.2)")
+    st.write("**Slope**: the slope of the peak exercise ST segment; 0= upsloping, 1= flat, 2= downsloping")
+    st.write("**CA**: number of major vessels (Min value=0, Max value=3) colored by flourosopy")
+    st.write("**thal**: A categorical variable related to thallium stress test; 0 = error (in the original dataset 0 maps to NaN's), 1 = fixed defect, 2 = normal, 3 = reversable defect")
+print('Streamlit Title and Header Set Successfully')
 
 # Feature inputs
-age = st.number_input("Age", value=50)
-sex = st.selectbox("Sex (1 = Male, 0 = Female)", options=[1, 0])
-cp = st.number_input("Chest Pain Type (0-3)", value=0)
-trestbps = st.number_input("Resting Blood Pressure", value=120)
-chol = st.number_input("Cholesterol Level", value=200)
-fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl (1 = True, 0 = False)", options=[1, 0])
-restecg = st.number_input("Resting ECG Results (0-2)", value=1)
-thalach = st.number_input("Max Heart Rate Achieved", value=150)
-exang = st.selectbox("Exercise Induced Angina (1 = Yes, 0 = No)", options=[1, 0])
-oldpeak = st.number_input("ST Depression Induced by Exercise", value=1.0, step=0.1)
-slope = st.number_input("Slope of the Peak Exercise ST Segment (0-2)", value=1)
-ca = st.number_input("Number of Major Vessels Colored by Fluoroscopy (0-3)", value=0)
-thal = st.number_input("Thalassemia (1 = Normal, 2 = Fixed Defect, 3 = Reversible Defect)", value=1)
+age = st.number_input("Age", min_value=29, max_value=77, value=50, step=1)
+sex = st.selectbox("Sex", options=[1, 0], format_func=lambda x: "Male" if x== 1 else "No")
+cp = st.number_input("Chest Pain Type", min_value=0, max_value=3, value=0, step=1)
+thalach = st.number_input("Max Heart Rate Achieved", min_value=71, max_value=202, value=80, step=1)
+exang = st.selectbox("Exercise Induced Angina", options=[1, 0], format_func=lambda x: "Yes" if x== 1 else "No")
+oldpeak = st.number_input("ST Depression Induced by Exercise", min_value=0.0, max_value=6.2, value=0.0, step=0.1)
+slope = st.number_input("Slope", min_value=0, max_value=2, value=1, step=1)
+ca = st.number_input("CA", min_value=0.0, max_value=4.0, value=0.0, step=1.0)
+thal = st.number_input("Thalassemia", min_value=0.0, max_value=3.0, value=0.0, step=1.0)
 print("Feature Input Created")
 
 # Prepare input data for prediction
-input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+input_data = np.array([[age, sex, cp, thalach, exang, oldpeak, slope, ca, thal]])
 print("Input Data Created")
 
 # Scale the input data
